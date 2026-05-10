@@ -6,7 +6,6 @@
     <title>MR MEMBRESIAS - Catálogo Premium</title>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* BASE Y FONDO */
         body {
             margin: 0; padding: 0;
             font-family: 'Sora', sans-serif;
@@ -17,7 +16,6 @@
 
         .container { padding: 40px 20px; max-width: 900px; margin: auto; }
 
-        /* HERO SECTION */
         h1 {
             font-size: 2.5rem;
             background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
@@ -29,7 +27,7 @@
             display: inline-block;
             background-color: #25d366;
             color: white;
-            padding: 12px 25px;
+            padding: 15px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
@@ -44,7 +42,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+            margin-bottom: 50px;
         }
 
         .card {
@@ -53,18 +51,49 @@
             padding: 25px;
             border-radius: 20px;
             transition: 0.3s;
-            cursor: pointer;
         }
 
-        .card:hover {
-            background: rgba(58, 123, 213, 0.15);
-            border-color: #00d2ff;
-            transform: translateY(-10px);
+        .card:hover { border-color: #00d2ff; transform: translateY(-5px); }
+        .card h3 { color: #00d2ff; margin-top: 0; }
+        .price { color: #25d366; font-weight: bold; }
+
+        /* SECCIÓN DE PAGOS */
+        .pagos {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 50px;
         }
 
-        .card h3 { margin: 0; color: #00d2ff; font-size: 1.4rem; }
-        .card p { color: #94a3b8; font-size: 0.9rem; line-height: 1.6; }
-        .price { display: block; margin-top: 15px; font-weight: bold; color: #fff; font-size: 1.1rem; }
+        .metodos-iconos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .metodo {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        /* FAQ */
+        .faq {
+            text-align: left;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .faq-item h4 { color: #00d2ff; margin-bottom: 5px; }
+        .faq-item p { color: #94a3b8; font-size: 0.9rem; }
 
     </style>
 </head>
@@ -72,36 +101,50 @@
 
     <div class="container">
         <h1>MR MEMBRESIAS</h1>
-        <p>Cuentas Premium y Servicios Digitales</p>
+        <p>Servicios Digitales Premium | Catamarca, Argentina</p>
         
-        <a href="https://wa.me/3834687071" class="btn-whatsapp">📲 Consultar por WhatsApp</a>
+        <a href="https://wa.me/5493834000000?text=Hola!%20Vengo%20de%20la%20web%20y%20quiero%20info" class="btn-whatsapp">
+            📲 Pedir info por WhatsApp
+        </a>
 
         <div class="grid-servicios">
             <div class="card">
-                <h3>🎬 STREAMING</h3>
-                <p>Netflix, Disney+, HBO Max, Amazon Prime. Calidad 4K garantizada.</p>
-                <span class="price">Entrega Inmediata</span>
+                <h3>🎬 Streaming</h3>
+                <p>Netflix, Disney+, Flujo TV y más.</p>
+                <span class="price">Entrega al instante</span>
             </div>
-
             <div class="card">
-                <h3>🎧 MÚSICA</h3>
-                <p>Spotify Premium, YouTube Premium, Apple Music. Sin anuncios.</p>
-                <span class="price">Planes Mensuales</span>
-            </div>
-
-            <div class="card">
-                <h3>🎮 GAMING</h3>
-                <p>Game Pass Ultra, PS Plus, Pavos Fortnite y Monedas. ¡Consultar stock!</p>
-                <span class="price">Ofertas Semanales</span>
-            </div>
-
-            <div class="card">
-                <h3>🚀 REDES SOCIALES</h3>
-                <p>Optimización de Instagram, Seguidores y Likes para tu perfil.</p>
-                <span class="price">Crecimiento Real</span>
+                <h3>📈 Instagram</h3>
+                <p>Seguidores, likes y optimización de perfil.</p>
+                <span class="price">Crecimiento real</span>
             </div>
         </div>
-    </div>
 
+        <div class="pagos">
+            <h3>💳 Medios de Pago</h3>
+            <div class="metodos-iconos">
+                <span class="metodo">Mercado Pago</span>
+                <span class="metodo">Transferencia</span>
+                <span class="metodo">Ualá</span>
+                <span class="metodo">Binance (USDT)</span>
+            </div>
+        </div>
+
+        <div class="faq">
+            <h3 style="text-align: center;">🤔 Preguntas Frecuentes</h3>
+            
+            <div class="faq-item">
+                <h4>¿Cuánto tarda la entrega?</h4>
+                <p>La mayoría de los servicios se entregan en menos de 15 minutos una vez confirmado el pago.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>¿Los servicios tienen garantía?</h4>
+                <p>Sí, todas nuestras membresías cuentan con garantía total por el tiempo contratado.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>¿Cómo recibo mi cuenta?</h4>
+                <p>Te envi
 </body>
 </html>
