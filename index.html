@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MR MEMBRESIAS | Servicios PREMIUM</title>
+    <title>MR MEMBRESIAS | Servicios premium</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
@@ -18,6 +18,7 @@
             overflow-x: hidden;
         }
 
+        /* FONDO CON LÁGRIMAS DE ORO */
         #canvasRain {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -51,12 +52,11 @@
         }
 
         .logo-img {
-            width: 280px; 
+            width: 150px;
             height: auto;
             display: block;
-            margin: 0 auto 15px;
-            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
-            background: transparent !important;
+            margin: 0 auto 10px;
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
         }
 
         .card-main {
@@ -108,15 +108,14 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            font-size: 1.25rem; 
+            font-size: 1.2rem;
             margin: 20px 0;
             font-weight: 700;
-            color: #ffffff;
         }
 
         .logo-servicio {
-            width: 38px; 
-            height: 38px;
+            width: 35px;
+            height: 35px;
             object-fit: contain;
         }
 
@@ -129,17 +128,36 @@
             border-radius: 12px;
             text-decoration: none;
             font-weight: 900;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             background: #0056b3;
             color: white;
             transition: 0.3s;
             margin-top: 20px;
         }
 
-        .btn-blue:hover {
-            background: #0072ff;
-            box-shadow: 0 0 25px rgba(0, 114, 255, 0.6);
+        /* BLOQUE DE CONTACTO FINAL */
+        .contact-footer {
+            margin-top: 60px;
+            text-align: center;
+            width: 100%;
         }
+
+        .footer-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            border: 2px solid #B8860B;
+            margin-bottom: 20px;
+        }
+
+        .phone-display {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #bd8fff;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -149,9 +167,9 @@
     <div class="content">
         
         <div class="card-main">
-            <img src="logo.png?v=1.7" alt="MR Membresias" class="logo-img">
+            <img src="logo.png?v=1.1" alt="MR Membresias" class="logo-img">
             <h1>MR MEMBRESIAS</h1>
-            <p style="color: #ccc; font-size: 1.2rem; margin-bottom: 30px;">¡Acceso a tus plataformas favoritas!</p>
+            <p style="color: #ccc; font-size: 1.2rem; margin-bottom: 30px;">Acceso a tus plataformas favoritas!</p>
             <a href="https://wa.me/5493834687071" class="btn-blue">
                 <i class="fab fa-whatsapp"></i> &nbsp; CONTACTO DIRECTO
             </a>
@@ -162,39 +180,46 @@
         <div class="grid-categorias">
             <div class="categoria-card">
                 <h3>🎬 STREAMING</h3>
-                <div class="item-s"><img src="netflix.png?v=1.7" class="logo-servicio"> Netflix Premium</div>
-                <div class="item-s"><img src="disneyplus.png?v=1.7" class="logo-servicio"> Disney+ Premium</div>
-                <div class="item-s"><img src="primevideo.png?v=1.7" class="logo-servicio"> Prime Video</div>
-                <div class="item-s"><img src="max.png?v=1.7" class="logo-servicio"> Max (HBO)</div>
-                <div class="item-s"><img src="paramountplus.png?v=1.7" class="logo-servicio"> Paramount+</div>
-                <div class="item-s"><img src="appletv.png?v=1.7" class="logo-servicio"> Apple TV+</div>
-                <div class="item-s"><img src="vixplus.png?v=1.7" class="logo-servicio"> Vix Premium</div>
-                <div class="item-s"><img src="crunchyroll.png?v=1.7" class="logo-servicio"> Crunchyroll</div>
+                <div class="item-s"><img src="netflix.png?v=1.1" class="logo-servicio"> Netflix Premium</div>
+                <div class="item-s"><img src="disneyplus.png?v=1.1" class="logo-servicio"> Disney+ Premium</div>
+                <div class="item-s"><img src="primevideo.png?v=1.1" class="logo-servicio"> Prime Video</div>
+                <div class="item-s"><img src="max.png?v=1.1" class="logo-servicio"> Max (HBO)</div>
+                <div class="item-s"><img src="paramountplus.png?v=1.1" class="logo-servicio"> Paramount+</div>
+                <div class="item-s"><img src="vixpremium.png?v=1.1" class="logo-servicio"> Vix Premium</div>
+                <div class="item-s"><img src="appletv.png?v=1.1" class="logo-servicio"> Apple TV+</div>
+                <div class="item-s"><img src="crunchyroll.png?v=1.1" class="logo-servicio"> Crunchyroll</div>
                 <div class="item-s">
-    <i class="fas fa-bolt" style="color: #FFD700; font-size: 32px; width: 38px; text-align: center; margin-right: 15px;"></i> 
-    Flujo TV
-</div>
-                <div class="item-s"><img src="phub.png?v=1.7" class="logo-servicio"> Pornhub Premium</div>
+                    <i class="fas fa-bolt" style="color: #FFD700; font-size: 32px; width: 38px; text-align: center; margin-right: 15px;"></i> 
+                    Flujo TV
+                </div>
+                <div class="item-s"><img src="phub.png?v=1.1" class="logo-servicio"> Pornhub Premium</div>
             </div>
 
             <div class="categoria-card">
-                <h3>🎧 MÚSICA & GAMES</h3>
-                <div class="item-s"><img src="spotify.png?v=1.7" class="logo-servicio"> Spotify Premium</div>
-                <div class="item-s"><img src="youtube.png?v=1.7" class="logo-servicio"> YouTube Premium</div>
-                <div class="item-s"><img src="appletv.png?v=1.7" class="logo-servicio"> Apple Music</div>
-
+                <h3>🎧 MÚSICA</h3>
+                <div class="item-s"><img src="spotify.png?v=1.1" class="logo-servicio"> Spotify Premium</div>
+                <div class="item-s"><img src="youtube.png?v=1.1" class="logo-servicio"> YouTube Premium</div>
+                <div class="item-s"><img src="appletv.png?v=1.1" class="logo-servicio"> Apple Music</div>
             </div>
 
             <div class="categoria-card">
-                <h3>💻 PRODUCTIVIDAD</h3>
-                <div class="item-s"><img src="chatgpt.png?v=1.7" class="logo-servicio"> ChatGPT Pro</div>
-                <div class="item-s"><img src="canva.png?v=1.7" class="logo-servicio"> Canva Pro</div>
-                <div class="item-s"><img src="capcut.png?v=1.7" class="logo-servicio"> CapCut Pro</div>
-                <div class="item-s"><img src="microsoftoffice.png?v=1.7" class="logo-servicio"> Office 365</div>
+                <h3>💻 IA, EDICION Y +</h3>
+                <div class="item-s"><img src="chatgpt.png?v=1.1" class="logo-servicio"> ChatGPT Pro</div>
+                <div class="item-s"><img src="canva.png?v=1.1" class="logo-servicio"> Canva Pro</div>
+                <div class="item-s"><img src="capcut.png?v=1.1" class="logo-servicio"> CapCut Pro</div>
+                <div class="item-s"><img src="microsoftoffice.png?v=1.1" class="logo-servicio"> Office 365</div>
+                <div class="item-s"><img src="instagramseguidores.png?v=1.1" class="logo-servicio"> Seguidores IG</div>
             </div>
         </div>
 
-        <p style="font-size: 0.9rem; color: #555; margin-top: 60px;">© 2026 MR MEMBRESIAS</p>
+        <div class="contact-footer">
+            <img src="logo.png?v=1.1" alt="Logo" class="footer-logo">
+            <p style="color: #eee; font-size: 1.1rem; margin-bottom: 5px;">Atención rápida y personalizada al WhatsApp</p>
+            <div style="font-size: 1.5rem; font-weight: bold;">Contacto:</div>
+            <div class="phone-display">3834687071</div>
+        </div>
+
+        <p style="font-size: 0.9rem; color: #555; margin-top: 60px;">© 2026 MR MEMBRESIAS.</p>
     </div>
 
     <script>
@@ -202,31 +227,39 @@
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        
         let particles = [];
-        for (let i = 0; i < 125; i++) {
+        for (let i = 0; i < 100; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                length: Math.random() * 25,
-                speed: Math.random() * 5 + 3
+                length: Math.random() * 30 + 10,
+                speed: Math.random() * 4 + 2,
+                opacity: Math.random() * 0.5 + 0.2
             });
         }
+
         function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.strokeStyle = 'rgba(174, 150, 255, 0.4)';
-            ctx.lineWidth = 1;
             for (let i = 0; i < particles.length; i++) {
                 let p = particles[i];
-                ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y + p.length); ctx.stroke();
-                p.y += p.speed; if (p.y > canvas.height) p.y = -25;
+                let gradient = ctx.createLinearGradient(p.x, p.y, p.x, p.y + p.length);
+                gradient.addColorStop(0, `rgba(255, 215, 0, 0)`);
+                gradient.addColorStop(1, `rgba(212, 175, 55, ${p.opacity})`);
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 2;
+                ctx.lineCap = 'round';
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(p.x, p.y + p.length);
+                ctx.stroke();
+                p.y += p.speed;
+                if (p.y > canvas.height) { p.y = -p.length; p.x = Math.random() * canvas.width; }
             }
             requestAnimationFrame(draw);
         }
         draw();
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
     </script>
 </body>
 </html>
