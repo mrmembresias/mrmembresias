@@ -1,57 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <body>
+    <div class="rain"></div> <div class="main-container">
+        <div class="section">
+            <h1 style="letter-spacing: 2px;">MR MEMBRESIAS</h1>
+            <p style="color: #ccc;">Potencia tu entretenimiento al instante.</p>
+            <a href="https://wa.me/5493834687071" class="btn-vip">
+                <i class="fab fa-whatsapp"></i> CONTACTO!
+            </a>
+        </div>
+
+        <div class="section" style="border: 1px solid #0056b3;">
+            <h2 style="color: #00d2ff;">EL SERVICIO DEFINITIVO</h2>
+            <div class="grid">
+                <div class="service-item">
+                    <h4>⚽ Deportes VIP</h4>
+                    <p>Pack Fútbol Completo.</p>
+                </div>
+                <div class="service-item">
+                    <h4>🎬 Cine 4K</h4>
+                    <p>Netflix, Disney+, Max y más.</p>
+                </div>
+            </div>
+            <a href="https://wa.me/5493834687071" class="btn-vip" style="background: #25d366;">
+            </a>
+        </div>
+
+        <footer style="text-align: center; padding: 20px; color: #666;">
+            <p>© 2026 MR MEMBRESIAS.</p>
+        </footer>
+    </div>
+</body>
+</html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MR MEMBRESIAS | Servicios Digitales</title>
+    <title>MR MEMBRESIAS | Violeta Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
+        /* EL SECRETO DEL FONDO: Degradado y Lluvia */
         body {
             margin: 0; padding: 0;
-            background-color: #000000; /* Negro puro como la original */
-            color: white;
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+            /* Degradado Violeta Animado */
+            background: linear-gradient(135deg, #02001f 0%, #1e004a 50%, #000000 100%);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
         }
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-        
+
+        /* La animación del degradado */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Capa para la "Lluvia" (Partículas) */
+        .rain {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://raw.githubusercontent.com/username/repository/main/rain.png'); /* ESTO LO AGREGAREMOS DESPUÉS */
+            opacity: 0.1;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Contenedor principal para que el contenido no tape la lluvia */
+        .main-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+        }
+
         /* Estilo de los bloques (Secciones) */
         .section {
-            background: #111111;
-            border: 1px solid #333;
+            background: rgba(26, 26, 26, 0.85); /* Un poco transparente para ver el fondo */
+            border: 1px solid rgba(51, 51, 51, 0.5);
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 20px;
             text-align: center;
+            backdrop-filter: blur(5px); /* Efecto borroso detrás del bloque */
         }
 
-        /* Botón de WhatsApp Gigante */
+        /* El resto de estilos (Botones, Grid) */
         .btn-vip {
-            display: block;
-            background: #0056b3; /* Azul oscuro */
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 20px 0;
-            font-size: 1.1rem;
+            display: block; background: #0056b3; color: white;
+            padding: 15px; border-radius: 10px; text-decoration: none;
+            font-weight: bold; margin: 20px 0; font-size: 1.1rem;
         }
-
-        /* Cuadrícula de servicios */
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            text-align: left;
-        }
-        .service-item {
-            background: #1a1a1a;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #00d2ff; /* El detalle azul de la original */
-        }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left; }
+        .service-item { background: rgba(30, 30, 30, 0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #00d2ff; }
     </style>
 </head>
