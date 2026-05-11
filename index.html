@@ -3,25 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MR MEMBRESIAS | Premium</title>
+    <title>MR MEMBRESIAS | Premium Gold</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* ESTILOS DE BASE (IGUALES A LA REFERENCIA) */
         body, html {
             margin: 0; padding: 0;
             width: 100%; height: 100%;
-            background-color: #000000; /* Fondo negro puro */
+            background-color: #000;
             color: white;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            display: flex;
-            justify-content: center; /* Centra todo el contenido */
         }
 
-        /* EFECTO DE LLUVIA SOBRE FONDO VIOLETA */
         #canvasRain {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -33,88 +29,115 @@
         .content {
             position: relative;
             z-index: 1;
-            width: 90%;
-            max-width: 450px; /* Ancho compacto de celular */
+            width: 95%;
+            max-width: 1200px; /* Aumentamos el ancho para que entren las 3 columnas */
+            margin: auto;
             padding: 40px 0;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* ESTILO DE BLOQUES (CARDS) */
-        .card {
-            background: #0a0a0a; /* Negro muy oscuro */
-            border: 1px solid #1a1a1a; /* Borde sutil */
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 15px; /* Espacio reducido entre bloques */
-            width: 100%;
-            box-sizing: border-box;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        /* ESTILO DORADO ORO */
+        h1 { 
+            font-size: 2.5rem; /* Letra más grande */
+            margin: 10px 0; 
+            letter-spacing: 3px;
+            background: linear-gradient(180deg, #FFD700 0%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(184, 134, 11, 0.3);
         }
 
-        /* TEXTOS */
-h1 { 
-    font-size: 1.8rem; 
-    margin: 15px 0 0; 
-    letter-spacing: 2px;
-    background: linear-gradient(180deg, #FFD700 0%, #B8860B 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
-    text-transform: uppercase;
-}
+        .logo-img {
+            width: 120px;
+            height: auto;
+            border-radius: 50%;
+            border: 3px solid #B8860B;
+            box-shadow: 0 0 20px rgba(184, 134, 11, 0.5);
+        }
 
-/* ESTILO PARA TU LOGO */
-.logo-img {
-    width: 100px; /* Ajusta el tamaño a tu gusto */
-    height: auto;
-    border-radius: 50%; /* Si tu logo es circular */
-    margin-bottom: 5px;
-    border: 2px solid #B8860B; /* Borde dorado fino */
-} }
+        .card-main {
+            background: rgba(10, 10, 10, 0.9);
+            border: 1px solid #1a1a1a;
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-        /* BOTONES ANCHOS */
+        /* GRID DE 3 COLUMNAS */
+        .grid-categorias {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Columnas más anchas */
+            gap: 25px;
+            width: 100%;
+        }
+
+        .categoria-card {
+            background: rgba(15, 15, 15, 0.95);
+            border: 2px solid #3a007d; /* Borde más grueso */
+            border-radius: 18px;
+            padding: 25px;
+            transition: 0.4s ease;
+        }
+
+        .categoria-card:hover {
+            border-color: #7000ff;
+            background: rgba(46, 0, 87, 0.4);
+            box-shadow: 0 0 30px rgba(112, 0, 255, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .categoria-card h3 {
+            font-size: 1.2rem; /* Título más grande */
+            text-align: center;
+            color: #fff;
+            border-bottom: 2px solid #3a007d;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        /* ITEMS DEL CATÁLOGO */
+        .item-s {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.05rem; /* Letra más grande y legible */
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        .item-s i {
+            width: 25px;
+            font-size: 1.3rem; /* Iconos más grandes */
+            text-align: center;
+        }
+
+        /* BOTONES */
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 16px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.9rem;
-            box-sizing: border-box;
+            font-size: 1.1rem;
+            margin-top: 15px;
             transition: 0.3s;
         }
 
         .btn-blue { background: #0056b3; color: white; }
-        .btn-green { background: #25d366; color: white; border-radius: 25px; }
+        .btn-blue:hover { background: #0072ff; box-shadow: 0 0 20px rgba(0, 114, 255, 0.5); }
 
-        /* EFECTO HOVER VIOLETA (EL QUE ME PEDISTE) */
-        .card:hover {
-            background: rgba(46, 0, 87, 0.5);
-            border-color: #7000ff;
-            box-shadow: 0 0 20px rgba(112, 0, 255, 0.4);
-            transform: translateY(-3px);
-            transition: all 0.3s ease;
-        }
-
-        /* SECCIÓN DE TV CON BORDE AZUL */
-        .tv-section { border: 1px solid #0056b3; }
-        .grid-tv { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0; }
-        .tv-item { background: #121212; border-left: 3px solid #00d2ff; padding: 12px; border-radius: 6px; text-align: left; }
-        .tv-item b { font-size: 0.8rem; color: #00d2ff; }
-        .tv-item span { font-size: 0.7rem; color: #ccc; }
-
-        /* CATÁLOGO DE SERVICIOS */
-        .services-list { text-align: left; margin-top: 15px; }
-        .list-item { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; margin: 12px 0; }
-        .list-item i { width: 20px; text-align: center; font-size: 1rem; }
-
-        /* COLORES DE LOGOS CORREGIDOS */
+        /* COLORES DE ICONOS */
         .fa-netflix { color: #e50914; }
         .fa-spotify { color: #1db954; }
         .fa-youtube { color: #ff0000; }
@@ -126,9 +149,6 @@ h1 {
         .fa-windows { color: #0078d7; }
         .fa-robot { color: #74aa9c; }
         .fa-paint-brush { color: #00c4cc; }
-        .fa-bolt { color: #fbc02d; }
-        .fa-play { color: #00d2ff; }
-
     </style>
 </head>
 <body>
@@ -137,56 +157,52 @@ h1 {
 
     <div class="content">
         
-        <div class="card">
+        <div class="card-main">
+            <img src="logo.png" alt="Logo" class="logo-img">
             <h1>MR MEMBRESIAS</h1>
-            <p class="subtitle">Acceso Digital Premium al instante.</p>
+            <p style="color: #ccc; font-size: 1.1rem; margin-bottom: 25px;">Acceso Digital Premium al instante.</p>
             <a href="https://wa.me/5493834XXXXXX" class="btn btn-blue">
-                <i class="fab fa-whatsapp"></i> &nbsp; CONTACTO!
+                <i class="fab fa-whatsapp"></i> &nbsp; CONTACTO DIRECTO
             </a>
         </div>
 
-        <div class="card tv-section">
-            <h2 style="color: #00d2ff; font-size: 1.1rem; margin-top: 0; text-transform: uppercase;">El Servicio Definitivo</h2>
-            <div class="grid-tv">
-                <div class="tv-item">
-                    <b>🌎 Deportes VIP</b>
-                    <span>Pack Fútbol Completo.</span>
-                </div>
-                <div class="tv-item">
-                    <b>🎬 Cine 4K</b>
-                    <span>Netflix, Disney, Max.</span>
-                </div>
-            </div>
-            <a href="https://wa.me/5493834XXXXXX" class="btn btn-green">
-                🎁 SOLICITAR PRUEBA GRATIS
-            </a>
-        </div>
+        <h2 style="text-align: center; margin-bottom: 30px; letter-spacing: 2px;">CATÁLOGO EXCLUSIVO</h2>
 
-        <h2 class="section-title">NUESTROS SERVICIOS</h2>
-        
-        <div class="card">
-            <h3 style="font-size: 0.9rem; margin-top: 0;">STREAMING & MÚSICA</h3>
-            <div class="services-list">
-                <div class="list-item"><i class="fab fa-netflix"></i> Netflix Premium</div>
-                <div class="list-item"><i class="fab fa-spotify"></i> Spotify Premium</div>
-                <div class="list-item"><i class="fab fa-youtube"></i> YouTube Premium</div>
-                <div class="list-item"><i class="fab fa-play"></i> Disney+ Premium</div>
-                <div class="list-item"><i class="fab fa-amazon"></i> Prime Video</div>
-                <div class="list-item"><i class="fas fa-bolt"></i> Flujo TV</div>
+        <div class="grid-categorias">
+            <div class="categoria-card">
+                <h3>🎬 STREAMING & CINE</h3>
+                <div class="item-s"><i class="fab fa-netflix"></i> Netflix Premium</div>
+                <div class="item-s"><i class="fab fa-play" style="color: #00d2ff;"></i> Disney+ Premium</div>
+                <div class="item-s"><i class="fab fa-amazon"></i> Prime Video</div>
+                <div class="item-s"><i class="fas fa-tv" style="color: #7000ff;"></i> Max (HBO)</div>
+                <div class="item-s"><i class="fas fa-star" style="color: #00d2ff;"></i> Paramount+</div>
+                <div class="item-s"><i class="fab fa-apple"></i> Apple TV+</div>
+                <div class="item-s"><i class="fas fa-bolt" style="color: #fbc02d;"></i> Flujo TV</div>
+                <div class="item-s"><i class="fas fa-satellite-dish" style="color: #ff5722;"></i> Magis TV</div>
             </div>
-        </div>
 
-        <div class="card">
-            <h3 style="font-size: 0.9rem; margin-top: 0;">IA & PRODUCTIVIDAD</h3>
-            <div class="services-list">
-                <div class="list-item"><i class="fas fa-robot"></i> ChatGPT Pro</div>
-                <div class="list-item"><i class="fas fa-paint-brush"></i> Canva Pro</div>
-                <div class="list-item"><i class="fas fa-cut" style="color: white;"></i> CapCut Pro</div>
-                <div class="list-item"><i class="fab fa-instagram"></i> Seguidores IG</div>
+            <div class="categoria-card">
+                <h3>🎧 MÚSICA & GAMING</h3>
+                <div class="item-s"><i class="fab fa-spotify"></i> Spotify Premium</div>
+                <div class="item-s"><i class="fab fa-youtube"></i> YouTube Premium</div>
+                <div class="item-s"><i class="fab fa-apple"></i> Apple Music</div>
+                <div class="item-s"><i class="fab fa-amazon"></i> Amazon Music</div>
+                <div class="item-s"><i class="fab fa-xbox"></i> Xbox Game Pass</div>
+                <div class="item-s"><i class="fab fa-playstation"></i> PS Plus</div>
+                <div class="item-s"><i class="fas fa-chess-knight" style="color: #fff;"></i> Minecraft</div>
+            </div>
+
+            <div class="categoria-card">
+                <h3>💻 PRODUCTIVIDAD & IA</h3>
+                <div class="item-s"><i class="fas fa-robot"></i> ChatGPT Pro</div>
+                <div class="item-s"><i class="fas fa-brain" style="color: #74aa9c;"></i> Gemini Pro</div>
+                <div class="item-s"><i class="fas fa-paint-brush"></i> Canva Pro</div>
+                <div class="item-s"><i class="fas fa-cut" style="color: #fff;"></i> CapCut Pro</div>
+                <div class="item-s"><i class="fas fa-file-word" style="color: #2b579a;"></i> Office 365</div>
+                <div class="item-s"><i class="fab fa-windows"></i> Windows 10/11 Pro</div>
+                <div class="item-s"><i class="fab fa-instagram"></i> Seguidores & Likes IG</div>
             </div>
         </div>
-
-        <p style="font-size: 0.7rem; color: #444; margin-top: 30px;">© 2026 MR MEMBRESIAS.</p>
 
     </div>
 
@@ -196,12 +212,12 @@ h1 {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         let particles = [];
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 120; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                length: Math.random() * 20,
-                speed: Math.random() * 5 + 2
+                length: Math.random() * 25,
+                speed: Math.random() * 5 + 3
             });
         }
         function draw() {
@@ -211,7 +227,7 @@ h1 {
             for (let i = 0; i < particles.length; i++) {
                 let p = particles[i];
                 ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y + p.length); ctx.stroke();
-                p.y += p.speed; if (p.y > canvas.height) p.y = -20;
+                p.y += p.speed; if (p.y > canvas.height) p.y = -25;
             }
             requestAnimationFrame(draw);
         }
