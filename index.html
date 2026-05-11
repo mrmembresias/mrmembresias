@@ -3,155 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MR MEMBRESIAS</title>
+    <title>MR MEMBRESIAS | Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    
     <style>
-        /* FONDO VIOLETA CON ESTRELLAS */
-        body {
+        /* ESTILOS BASE */
+        body, html {
             margin: 0; padding: 0;
-            font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at center, #1e004a 0%, #000000 100%);
-            background-attachment: fixed;
+            width: 100%; height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0216; /* Violeta muy oscuro */
             color: white;
+            overflow-x: hidden;
+        }
+
+        /* EFECTO DE LLUVIA REAL */
+        #canvasRain {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/stardust.png');
-            opacity: 0.4;
-            z-index: -1;
+            padding: 20px;
         }
 
         .container {
-            width: 90%;
-            max-width: 450px; /* Ancho exacto de una landing móvil profesional */
-            padding-top: 40px;
+            width: 100%;
+            max-width: 450px;
         }
 
-        /* ESTILO DE BLOQUES NEGROS */
-        .section {
-            background: #0a0a0a;
-            border: 1px solid #1a1a1a;
+        /* BLOQUES ESTILO DIGITAL GAMER */
+        .card {
+            background: rgba(10, 10, 10, 0.95);
+            border: 1px solid #1f1f1f;
             border-radius: 15px;
             padding: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
         }
 
-        h1 { font-size: 1.5rem; margin: 0; letter-spacing: 1px; }
-        p { font-size: 0.85rem; color: #b0b0b0; margin: 10px 0; }
+        h1 { font-size: 1.6rem; margin: 0; color: #fff; }
+        .subtitle { font-size: 0.85rem; color: #888; margin-bottom: 15px; }
 
-        /* BOTONES ANCHOS */
-        .btn {
+        /* BOTÓN VIP AZUL */
+        .btn-vip {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 100%;
-            padding: 12px;
+            background: #0056b3;
+            color: white;
+            padding: 14px;
             border-radius: 10px;
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9rem;
-            box-sizing: border-box;
-            margin: 10px 0;
-            transition: 0.3s;
+            margin-top: 10px;
         }
 
-        .btn-blue { background: #0056b3; color: white; }
-        .btn-green { background: #25d366; color: white; }
-        
-        /* CUADRÍCULA DE SERVICIOS */
-        .grid {
+        /* SECCIÓN DE TV CON BORDE AZUL */
+        .tv-section {
+            border: 1px solid #0056b3;
+        }
+
+        .grid-tv {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
-            margin-top: 15px;
+            margin: 15px 0;
         }
 
-        .service-card {
-            background: #121212;
-            border: 1px solid #222;
-            border-left: 4px solid #00d2ff;
-            padding: 12px;
-            border-radius: 8px;
+        .tv-item {
+            background: #161616;
+            border-left: 3px solid #00d2ff;
+            padding: 10px;
+            border-radius: 5px;
             text-align: left;
         }
 
-        .service-card h4 { margin: 0; font-size: 0.8rem; color: #00d2ff; }
-        .service-card p { margin: 5px 0 0; font-size: 0.7rem; }
+        .tv-item b { font-size: 0.8rem; color: #00d2ff; display: block; }
+        .tv-item span { font-size: 0.7rem; color: #aaa; }
 
-        /* LISTA DE LOGOS CON COLORES */
-        .list-item {
+        /* BOTÓN VERDE */
+        .btn-green {
+            display: block;
+            background: #25d366;
+            color: white;
+            padding: 12px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        /* CATÁLOGO DE SERVICIOS (TODOS LOS BOTONES) */
+        .services-list {
+            text-align: left;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .service-link {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 0.85rem;
-            margin: 10px 0;
-            text-align: left;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: #eee;
+            margin: 5px 0;
         }
 
+        /* COLORES DE LOGOS */
         .fa-netflix { color: #e50914; }
         .fa-spotify { color: #1db954; }
         .fa-youtube { color: #ff0000; }
         .fa-instagram { color: #e1306c; }
+        .fa-play { color: #00d2ff; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <div class="section">
-            <h1>MR MEMBRESIAS</h1>
-            <p>Potencia tu entretenimiento al instante.</p>
-            <a href="https://wa.me/5493834687071" class="btn btn-blue">
-                <i class="fab fa-whatsapp"></i> &nbsp; CONTACTO!
-            </a>
-        </div>
+    <canvas id="canvasRain"></canvas>
 
-        <div class="section" style="border: 1px solid #0056b3;">
-            <h2 style="color: #00d2ff; font-size: 1rem; margin: 0;">EL SERVICIO DEFINITIVO</h2>
-            <div class="grid">
-                <div class="service-card">
-                    <h4>⚽ Deportes VIP</h4>
-                    <p>Pack Fútbol Completo.</p>
+    <div class="content">
+        <div class="container">
+            
+            <div class="card">
+                <h1>MR MEMBRESIAS</h1>
+                <p class="subtitle">Acceso Digital Premium al instante.</p>
+                <a href="https://wa.me/5493834XXXXXX" class="btn-vip">
+                    <i class="fab fa-whatsapp"></i> &nbsp; UNIRSE AL GRUPO VIP
+                </a>
+            </div>
+
+            <div class="card tv-section">
+                <h2 style="color: #00d2ff; font-size: 1.1rem; margin-top: 0;">EL SERVICIO DEFINITIVO</h2>
+                <div class="grid-tv">
+                    <div class="tv-item">
+                        <b>⚽ Deportes VIP</b>
+                        <span>Pack Fútbol Completo.</span>
+                    </div>
+                    <div class="tv-item">
+                        <b>🎬 Cine 4K</b>
+                        <span>Netflix, Disney, Max.</span>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h4>🎬 Cine 4K</h4>
-                    <p>Netflix, Disney+, Max y más.</p>
+                <a href="https://wa.me/5493834XXXXXX" class="btn-green">
+                    🎁 PEDIR MI PRUEBA GRATIS
+                </a>
+            </div>
+
+            <div class="card">
+                <h3 style="font-size: 0.9rem; margin-bottom: 15px;">NUESTROS SERVICIOS</h3>
+                <div class="services-list">
+                    <div class="service-link"><i class="fab fa-netflix"></i> Netflix Premium</div>
+                    <div class="service-link"><i class="fab fa-spotify"></i> Spotify Premium</div>
+                    <div class="service-link"><i class="fab fa-youtube"></i> YouTube Premium</div>
+                    <div class="service-link"><i class="fas fa-play"></i> Disney+</div>
+                    <div class="service-link"><i class="fab fa-instagram"></i> Seguidores IG</div>
+                    <div class="service-link"><i class="fas fa-magic" style="color: #00c4cc;"></i> Canva Pro</div>
                 </div>
             </div>
-            <a href="https://wa.me/5493834687071" class="btn btn-green">
-                Comunicate por Whatsapp
-            </a>
+
         </div>
-
-        <div class="section">
-            <h3 style="font-size: 0.9rem; margin-bottom: 20px;">NUESTROS SERVICIOS</h3>
-            <div class="grid">
-                <div>
-                    <div class="list-item"><i class="fab fa-netflix"></i> Netflix Premium</div>
-                    <div class="list-item"><i class="fab fa-spotify"></i> Spotify</div>
-                    <div class="list-item"><i class="fab fa-youtube"></i> YouTube</div>
-                </div>
-                <div>
-                    <div class="list-item"><i class="fab fa-instagram"></i> Seguidores IG</div>
-                    <div class="list-item"><i class="fas fa-magic" style="color: #00c4cc;"></i> Canva Pro</div>
-                    <div class="list-item"><i class="fas fa-gamepad" style="color: #107c10;"></i> Game Pass</div>
-                </div>
-            </div>
-        </div>
-
-        <p style="font-size: 0.7rem; color: #444;">© 2026 MR MEMBRESIAS.</p>
-
     </div>
 
+    <script>
+        const canvas = document.getElementById('canvasRain');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        for (let i = 0; i < 100; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                length: Math.random() * 20,
+                speed: Math.random() * 5 + 2
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = 'rgba(174, 150, 255, 0.5)';
+            ctx.lineWidth = 1;
+            ctx.lineCap = 'round';
+            for (let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(p.x, p.y + p.length);
+                ctx.stroke();
+                p.y += p.speed;
+                if (p.y > canvas.height) {
+                    p.y = -20;
+                    p.x = Math.random() * canvas.width;
+                }
+            }
+            requestAnimationFrame(draw);
+        }
+        draw();
+    </script>
 </body>
 </html>
