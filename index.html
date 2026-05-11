@@ -3,223 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MR MEMBRESIAS | Servicios PREMIUM</title>
-    
+    <title>MR MEMBRESIAS | Premium Gold</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    
     <style>
-        body, html {
-            margin: 0; padding: 0;
-            width: 100%; height: 100%;
-            background-color: #000;
-            color: white;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-
-        #canvasRain {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0;
-            background: radial-gradient(circle at center, #1e004a 0%, #000000 100%);
-            pointer-events: none;
-        }
-
-        .content {
-            position: relative;
-            z-index: 1;
-            width: 95%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 40px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* TÍTULO DORADO ORO */
-        h1 { 
-            font-size: 2.8rem; 
-            margin: 15px 0; 
-            letter-spacing: 3px;
-            background: linear-gradient(180deg, #FFD700 0%, #B8860B 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-            text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(184, 134, 11, 0.4);
-        }
-
-        .logo-img {
-            width: 130px;
-            height: auto;
-            border-radius: 50%;
-            border: 3px solid #B8860B;
-            box-shadow: 0 0 25px rgba(184, 134, 11, 0.6);
-        }
-
-        .card-main {
-            background: rgba(10, 10, 10, 0.9);
-            border: 1px solid #1a1a1a;
-            border-radius: 20px;
-            padding: 40px;
-            width: 100%;
-            max-width: 550px;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .grid-categorias {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            width: 100%;
-        }
-
-        .categoria-card {
-            background: rgba(15, 15, 15, 0.95);
-            border: 2px solid #3a007d;
-            border-radius: 18px;
-            padding: 30px;
-            transition: 0.4s ease;
-        }
-
-        .categoria-card:hover {
-            border-color: #7000ff;
-            background: rgba(46, 0, 87, 0.5);
-            box-shadow: 0 0 35px rgba(112, 0, 255, 0.4);
-            transform: translateY(-10px);
-        }
-
-        .categoria-card h3 {
-            font-size: 1.4rem;
-            text-align: center;
-            color: #fff;
-            border-bottom: 2px solid #3a007d;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        /* LOGOS REALES Y TEXTO */
-        .item-s {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 1.2rem; /* Letra bien llamativa */
-            margin: 20px 0;
-            font-weight: 700;
-            color: #ffffff;
-        }
-
-        .logo-servicio {
-            width: 35px; /* Logos grandes */
-            height: 35px;
-            object-fit: contain;
-        }
-
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 18px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1.2rem;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-
-        .btn-blue { background: #0056b3; color: white; }
-        .btn-blue:hover { background: #0072ff; box-shadow: 0 0 25px rgba(0, 114, 255, 0.6); }
-
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #000; color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        #canvasRain { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: radial-gradient(circle at center, #1e004a 0%, #000000 100%); pointer-events: none; }
+        .content { position: relative; z-index: 1; width: 95%; max-width: 1200px; margin: auto; padding: 40px 0; display: flex; flex-direction: column; align-items: center; }
+        h1 { font-size: 2.8rem; margin: 15px 0; letter-spacing: 3px; background: linear-gradient(180deg, #FFD700 0%, #B8860B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; text-transform: uppercase; text-shadow: 0 0 20px rgba(184, 134, 11, 0.4); }
+        .logo-img { width: 130px; height: auto; border-radius: 50%; border: 3px solid #B8860B; box-shadow: 0 0 25px rgba(184, 134, 11, 0.6); }
+        .card-main { background: rgba(10, 10, 10, 0.9); border: 1px solid #1a1a1a; border-radius: 20px; padding: 40px; width: 100%; max-width: 550px; text-align: center; margin-bottom: 50px; }
+        .grid-categorias { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; width: 100%; }
+        .categoria-card { background: rgba(15, 15, 15, 0.95); border: 2px solid #3a007d; border-radius: 18px; padding: 30px; transition: 0.4s ease; }
+        .categoria-card:hover { border-color: #7000ff; background: rgba(46, 0, 87, 0.5); box-shadow: 0 0 35px rgba(112, 0, 255, 0.4); transform: translateY(-10px); }
+        .categoria-card h3 { font-size: 1.4rem; text-align: center; border-bottom: 2px solid #3a007d; padding-bottom: 15px; margin-bottom: 25px; font-weight: 900; text-transform: uppercase; }
+        .item-s { display: flex; align-items: center; gap: 15px; font-size: 1.2rem; margin: 20px 0; font-weight: 700; }
+        .logo-servicio { width: 35px; height: 35px; object-fit: contain; }
+        .btn-blue { display: flex; align-items: center; justify-content: center; width: 100%; padding: 18px; border-radius: 12px; text-decoration: none; font-weight: 900; font-size: 1.2rem; background: #0056b3; color: white; transition: 0.3s; }
     </style>
 </head>
 <body>
-
     <canvas id="canvasRain"></canvas>
-
     <div class="content">
-        
         <div class="card-main">
-            <img src="logo.png" alt="Logo MR" class="logo-img">
+            <img src="logo.png" alt="Logo" class="logo-img">
             <h1>MR MEMBRESIAS</h1>
             <p style="color: #ccc; font-size: 1.2rem; margin-bottom: 30px;">Acceso Digital Premium al instante.</p>
-            <a href="https://wa.me/5493834687071" class="btn btn-blue">
-                <i class="fab fa-whatsapp"></i> &nbsp; CONTACTO DIRECTO
-            </a>
+            <a href="https://wa.me/5493834XXXXXX" class="btn-blue"><i class="fab fa-whatsapp"></i> &nbsp; CONTACTO DIRECTO</a>
         </div>
-
-        <h2 style="text-align: center; margin-bottom: 40px; letter-spacing: 3px; font-weight: 900; font-size: 1.8rem; text-transform: uppercase;">Catálogo Exclusivo</h2>
-
         <div class="grid-categorias">
             <div class="categoria-card">
                 <h3>🎬 STREAMING</h3>
                 <div class="item-s"><img src="netflix.png" class="logo-servicio"> Netflix Premium</div>
-                <div class="item-s"><img src="disney.png" class="logo-servicio"> Disney+ Premium</div>
-                <div class="item-s"><img src="prime.png" class="logo-servicio"> Prime Video</div>
-                <div class="item-s"><img src="max.png" class="logo-servicio"> Max (HBO)</div>
-                <div class="item-s"><img src="paramount.png" class="logo-servicio"> Paramount+</div>
-                <div class="item-s"><img src="flujo.png" class="logo-servicio"> Flujo TV</div>
+                <div class="item-s"><img src="disneyplus.png" class="logo-servicio"> Disney+ Premium</div>
+                <div class="item-s"><img src="primevideo.png" class="logo-servicio"> Prime Video</div>
+                <div class="item-s"><img src="paramountplus.png" class="logo-servicio"> Paramount+</div>
+                <div class="item-s"><img src="vixplus.png" class="logo-servicio"> VIX+</div>
+                <div class="item-s"><img src="crunchyroll.png" class="logo-servicio"> Crunchyroll</div>
                 <div class="item-s"><img src="phub.png" class="logo-servicio"> Pornhub Premium</div>
             </div>
-
             <div class="categoria-card">
                 <h3>🎧 MÚSICA & GAMES</h3>
                 <div class="item-s"><img src="spotify.png" class="logo-servicio"> Spotify Premium</div>
                 <div class="item-s"><img src="youtube.png" class="logo-servicio"> YouTube Premium</div>
-                <div class="item-s"><img src="apple.png" class="logo-servicio"> Apple Music</div>
-                <div class="item-s"><img src="xbox.png" class="logo-servicio"> Xbox Game Pass</div>
-                <div class="item-s"><img src="psplus.png" class="logo-servicio"> PS Plus</div>
+                <div class="item-s"><img src="appletv.png" class="logo-servicio"> Apple TV / Music</div>
+                <div class="item-s"><img src="deezer.png" class="logo-servicio"> Deezer Premium</div>
             </div>
-
             <div class="categoria-card">
                 <h3>💻 PRODUCTIVIDAD</h3>
                 <div class="item-s"><img src="chatgpt.png" class="logo-servicio"> ChatGPT Pro</div>
                 <div class="item-s"><img src="canva.png" class="logo-servicio"> Canva Pro</div>
                 <div class="item-s"><img src="capcut.png" class="logo-servicio"> CapCut Pro</div>
-                <div class="item-s"><img src="office.png" class="logo-servicio"> Office 365</div>
-                <div class="item-s"><img src="instagram.png" class="logo-servicio"> Seguidores IG</div>
+                <div class="item-s"><img src="microsoftoffice.png" class="logo-servicio"> Office 365</div>
             </div>
         </div>
-
-        <p style="font-size: 0.8rem; color: #444; margin-top: 50px;">© 2026 MR MEMBRESIAS.</p>
     </div>
-
     <script>
         const canvas = document.getElementById('canvasRain');
         const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
         let particles = [];
-        for (let i = 0; i < 125; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                length: Math.random() * 25,
-                speed: Math.random() * 5 + 3
-            });
-        }
+        for (let i = 0; i < 125; i++) { particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, length: Math.random() * 25, speed: Math.random() * 5 + 3 }); }
         function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.strokeStyle = 'rgba(174, 150, 255, 0.4)';
-            ctx.lineWidth = 1;
-            for (let i = 0; i < particles.length; i++) {
-                let p = particles[i];
-                ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y + p.length); ctx.stroke();
-                p.y += p.speed; if (p.y > canvas.height) p.y = -25;
-            }
+            ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.strokeStyle = 'rgba(174, 150, 255, 0.4)'; ctx.lineWidth = 1;
+            for (let i = 0; i < particles.length; i++) { let p = particles[i]; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y + p.length); ctx.stroke(); p.y += p.speed; if (p.y > canvas.height) p.y = -25; }
             requestAnimationFrame(draw);
         }
         draw();
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
     </script>
+</body>
+</html>
 </body>
 </html>
