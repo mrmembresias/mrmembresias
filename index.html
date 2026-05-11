@@ -50,6 +50,22 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.8);
         }
 
+        /* EFECTO VIOLETA AL PASAR EL MOUSE */
+.card:hover {
+    background: rgba(46, 0, 87, 0.4); /* Se vuelve violeta transparente */
+    border-color: #7000ff; /* El borde brilla en violeta fuerte */
+    box-shadow: 0 0 25px rgba(112, 0, 255, 0.3); /* Crea un aura de luz violeta */
+    transform: translateY(-3px); /* Sube un poquito para que parezca que flota */
+    transition: all 0.3s ease; /* Hace que el cambio sea suave, no de golpe */
+}
+
+/* También le damos brillo al botón cuando pasas el mouse */
+.btn-vip:hover, .btn-green:hover {
+    filter: brightness(1.2);
+    transform: scale(1.02);
+    transition: 0.2s;
+}
+        
         h1 { font-size: 1.6rem; margin: 0; color: #fff; }
         .subtitle { font-size: 0.85rem; color: #888; margin-bottom: 15px; }
 
