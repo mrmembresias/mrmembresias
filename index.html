@@ -30,7 +30,7 @@
             position: relative;
             z-index: 1;
             width: 95%;
-            max-width: 1200px; /* Aumentamos el ancho para que entren las 3 columnas */
+            max-width: 1200px;
             margin: auto;
             padding: 40px 0;
             display: flex;
@@ -38,117 +38,105 @@
             align-items: center;
         }
 
-        /* ESTILO DORADO ORO */
+        /* TÍTULO DORADO ORO */
         h1 { 
-            font-size: 2.5rem; /* Letra más grande */
-            margin: 10px 0; 
+            font-size: 2.8rem; 
+            margin: 15px 0; 
             letter-spacing: 3px;
             background: linear-gradient(180deg, #FFD700 0%, #B8860B 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 900;
             text-transform: uppercase;
-            text-shadow: 0 0 15px rgba(184, 134, 11, 0.3);
+            text-shadow: 0 0 20px rgba(184, 134, 11, 0.4);
         }
 
         .logo-img {
-            width: 120px;
+            width: 130px;
             height: auto;
             border-radius: 50%;
             border: 3px solid #B8860B;
-            box-shadow: 0 0 20px rgba(184, 134, 11, 0.5);
+            box-shadow: 0 0 25px rgba(184, 134, 11, 0.6);
         }
 
         .card-main {
             background: rgba(10, 10, 10, 0.9);
             border: 1px solid #1a1a1a;
             border-radius: 20px;
-            padding: 30px;
+            padding: 40px;
             width: 100%;
-            max-width: 500px;
+            max-width: 550px;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
-        /* GRID DE 3 COLUMNAS */
         .grid-categorias {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Columnas más anchas */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
             width: 100%;
         }
 
         .categoria-card {
             background: rgba(15, 15, 15, 0.95);
-            border: 2px solid #3a007d; /* Borde más grueso */
+            border: 2px solid #3a007d;
             border-radius: 18px;
-            padding: 25px;
+            padding: 30px;
             transition: 0.4s ease;
         }
 
         .categoria-card:hover {
             border-color: #7000ff;
-            background: rgba(46, 0, 87, 0.4);
-            box-shadow: 0 0 30px rgba(112, 0, 255, 0.3);
-            transform: translateY(-8px);
+            background: rgba(46, 0, 87, 0.5);
+            box-shadow: 0 0 35px rgba(112, 0, 255, 0.4);
+            transform: translateY(-10px);
         }
 
         .categoria-card h3 {
-            font-size: 1.2rem; /* Título más grande */
+            font-size: 1.4rem;
             text-align: center;
             color: #fff;
             border-bottom: 2px solid #3a007d;
             padding-bottom: 15px;
-            margin-bottom: 20px;
-            font-weight: 700;
+            margin-bottom: 25px;
+            font-weight: 900;
+            text-transform: uppercase;
         }
 
-        /* ITEMS DEL CATÁLOGO */
+        /* LOGOS REALES Y TEXTO */
         .item-s {
             display: flex;
             align-items: center;
             gap: 15px;
-            font-size: 1.05rem; /* Letra más grande y legible */
-            margin: 15px 0;
-            font-weight: 500;
+            font-size: 1.2rem; /* Letra bien llamativa */
+            margin: 20px 0;
+            font-weight: 700;
+            color: #ffffff;
         }
 
-        .item-s i {
-            width: 25px;
-            font-size: 1.3rem; /* Iconos más grandes */
-            text-align: center;
+        .logo-servicio {
+            width: 35px; /* Logos grandes */
+            height: 35px;
+            object-fit: contain;
         }
 
-        /* BOTONES */
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
-            padding: 16px;
+            padding: 18px;
             border-radius: 12px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-top: 15px;
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin-top: 20px;
             transition: 0.3s;
         }
 
         .btn-blue { background: #0056b3; color: white; }
-        .btn-blue:hover { background: #0072ff; box-shadow: 0 0 20px rgba(0, 114, 255, 0.5); }
+        .btn-blue:hover { background: #0072ff; box-shadow: 0 0 25px rgba(0, 114, 255, 0.6); }
 
-        /* COLORES DE ICONOS */
-        .fa-netflix { color: #e50914; }
-        .fa-spotify { color: #1db954; }
-        .fa-youtube { color: #ff0000; }
-        .fa-instagram { color: #e1306c; }
-        .fa-apple { color: #ffffff; }
-        .fa-amazon { color: #ff9900; }
-        .fa-xbox { color: #107c10; }
-        .fa-playstation { color: #003087; }
-        .fa-windows { color: #0078d7; }
-        .fa-robot { color: #74aa9c; }
-        .fa-paint-brush { color: #00c4cc; }
     </style>
 </head>
 <body>
@@ -158,52 +146,49 @@
     <div class="content">
         
         <div class="card-main">
-            <img src="logo.png" alt="Logo" class="logo-img">
+            <img src="logo.png" alt="Logo MR" class="logo-img">
             <h1>MR MEMBRESIAS</h1>
-            <p style="color: #ccc; font-size: 1.1rem; margin-bottom: 25px;">Acceso Digital Premium al instante.</p>
+            <p style="color: #ccc; font-size: 1.2rem; margin-bottom: 30px;">Acceso Digital Premium al instante.</p>
             <a href="https://wa.me/5493834XXXXXX" class="btn btn-blue">
                 <i class="fab fa-whatsapp"></i> &nbsp; CONTACTO DIRECTO
             </a>
         </div>
 
-        <h2 style="text-align: center; margin-bottom: 30px; letter-spacing: 2px;">CATÁLOGO EXCLUSIVO</h2>
+        <h2 style="text-align: center; margin-bottom: 40px; letter-spacing: 3px; font-weight: 900; font-size: 1.8rem; text-transform: uppercase;">Catálogo Exclusivo</h2>
 
         <div class="grid-categorias">
             <div class="categoria-card">
-                <h3>🎬 STREAMING & CINE</h3>
-                <div class="item-s"><i class="fab fa-netflix"></i> Netflix Premium</div>
-                <div class="item-s"><i class="fab fa-play" style="color: #00d2ff;"></i> Disney+ Premium</div>
-                <div class="item-s"><i class="fab fa-amazon"></i> Prime Video</div>
-                <div class="item-s"><i class="fas fa-tv" style="color: #7000ff;"></i> Max (HBO)</div>
-                <div class="item-s"><i class="fas fa-star" style="color: #00d2ff;"></i> Paramount+</div>
-                <div class="item-s"><i class="fab fa-apple"></i> Apple TV+</div>
-                <div class="item-s"><i class="fas fa-bolt" style="color: #fbc02d;"></i> Flujo TV</div>
-                <div class="item-s"><i class="fas fa-satellite-dish" style="color: #ff5722;"></i> Magis TV</div>
+                <h3>🎬 STREAMING</h3>
+                <div class="item-s"><img src="netflix.png" class="logo-servicio"> Netflix Premium</div>
+                <div class="item-s"><img src="disney.png" class="logo-servicio"> Disney+ Premium</div>
+                <div class="item-s"><img src="prime.png" class="logo-servicio"> Prime Video</div>
+                <div class="item-s"><img src="max.png" class="logo-servicio"> Max (HBO)</div>
+                <div class="item-s"><img src="paramount.png" class="logo-servicio"> Paramount+</div>
+                <div class="item-s"><img src="flujo.png" class="logo-servicio"> Flujo TV</div>
+                <div class="item-s"><img src="magis.png" class="logo-servicio"> Magis TV</div>
+                <div class="item-s"><img src="phub.png" class="logo-servicio"> Pornhub Premium</div>
             </div>
 
             <div class="categoria-card">
-                <h3>🎧 MÚSICA & GAMING</h3>
-                <div class="item-s"><i class="fab fa-spotify"></i> Spotify Premium</div>
-                <div class="item-s"><i class="fab fa-youtube"></i> YouTube Premium</div>
-                <div class="item-s"><i class="fab fa-apple"></i> Apple Music</div>
-                <div class="item-s"><i class="fab fa-amazon"></i> Amazon Music</div>
-                <div class="item-s"><i class="fab fa-xbox"></i> Xbox Game Pass</div>
-                <div class="item-s"><i class="fab fa-playstation"></i> PS Plus</div>
-                <div class="item-s"><i class="fas fa-chess-knight" style="color: #fff;"></i> Minecraft</div>
+                <h3>🎧 MÚSICA & GAMES</h3>
+                <div class="item-s"><img src="spotify.png" class="logo-servicio"> Spotify Premium</div>
+                <div class="item-s"><img src="youtube.png" class="logo-servicio"> YouTube Premium</div>
+                <div class="item-s"><img src="apple.png" class="logo-servicio"> Apple Music</div>
+                <div class="item-s"><img src="xbox.png" class="logo-servicio"> Xbox Game Pass</div>
+                <div class="item-s"><img src="psplus.png" class="logo-servicio"> PS Plus</div>
             </div>
 
             <div class="categoria-card">
-                <h3>💻 PRODUCTIVIDAD & IA</h3>
-                <div class="item-s"><i class="fas fa-robot"></i> ChatGPT Pro</div>
-                <div class="item-s"><i class="fas fa-brain" style="color: #74aa9c;"></i> Gemini Pro</div>
-                <div class="item-s"><i class="fas fa-paint-brush"></i> Canva Pro</div>
-                <div class="item-s"><i class="fas fa-cut" style="color: #fff;"></i> CapCut Pro</div>
-                <div class="item-s"><i class="fas fa-file-word" style="color: #2b579a;"></i> Office 365</div>
-                <div class="item-s"><i class="fab fa-windows"></i> Windows 10/11 Pro</div>
-                <div class="item-s"><i class="fab fa-instagram"></i> Seguidores & Likes IG</div>
+                <h3>💻 PRODUCTIVIDAD</h3>
+                <div class="item-s"><img src="chatgpt.png" class="logo-servicio"> ChatGPT Pro</div>
+                <div class="item-s"><img src="canva.png" class="logo-servicio"> Canva Pro</div>
+                <div class="item-s"><img src="capcut.png" class="logo-servicio"> CapCut Pro</div>
+                <div class="item-s"><img src="office.png" class="logo-servicio"> Office 365</div>
+                <div class="item-s"><img src="instagram.png" class="logo-servicio"> Seguidores IG</div>
             </div>
         </div>
 
+        <p style="font-size: 0.8rem; color: #444; margin-top: 50px;">© 2026 MR MEMBRESIAS. Catamarca, Argentina.</p>
     </div>
 
     <script>
@@ -212,7 +197,7 @@
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         let particles = [];
-        for (let i = 0; i < 120; i++) {
+        for (let i = 0; i < 125; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
@@ -232,6 +217,10 @@
             requestAnimationFrame(draw);
         }
         draw();
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
     </script>
 </body>
 </html>
