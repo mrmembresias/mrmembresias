@@ -21,6 +21,7 @@
             color: white;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         #canvasRain {
@@ -55,13 +56,20 @@
             text-shadow: 0 0 20px rgba(184, 134, 11, 0.4);
         }
 
-        /* LOGO ARRIBA GRANDE SIN AGRANDAR EL CUADRO */
+        /* LOGO CON PULSO SUTIL */
         .logo-img {
             width: 300px; 
             height: auto;
             display: block;
             margin: -30px auto 10px; 
             filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+            transition: 0.5s;
+            animation: pulseLogo 4s infinite ease-in-out;
+        }
+
+        @keyframes pulseLogo {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6)); }
+            50% { transform: scale(1.03); filter: drop-shadow(0 0 35px rgba(255, 215, 0, 0.8)); }
         }
 
         .card-main {
@@ -77,7 +85,6 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
         }
 
-        /* PASOS COMPRA */
         .steps-container {
             display: flex;
             justify-content: space-around;
@@ -90,7 +97,6 @@
         .step-item { text-align: center; max-width: 200px; }
         .step-item i { font-size: 2.5rem; color: #FFD700; margin-bottom: 10px; }
 
-        /* FILTROS */
         .filter-container {
             margin-bottom: 30px;
             display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
@@ -147,7 +153,6 @@
         .item-s { display: flex; align-items: center; gap: 15px; font-size: 1.2rem; margin: 20px 0; font-weight: 700; }
         .logo-servicio { width: 35px; height: 35px; object-fit: contain; }
 
-        /* BOTÓN WHATSAPP DORADO ANIMADO */
         .btn-gold {
             position: relative;
             display: flex; align-items: center; justify-content: center;
@@ -164,7 +169,22 @@
 
         @keyframes shine { 0% { left: -60%; } 20% { left: 120%; } 100% { left: 120%; } }
 
-        /* FOOTER LOGO GIGANTE */
+        /* BOTÓN SUBIR ARRIBA */
+        #scrollTop {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            width: 50px; height: 50px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: none; /* Se activa con JS */
+            align-items: center; justify-content: center;
+            color: black; font-size: 1.5rem;
+            cursor: pointer; z-index: 100;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            transition: 0.3s;
+        }
+        #scrollTop:hover { transform: scale(1.1); }
+
         .contact-footer {
             margin-top: 80px; text-align: center; width: 100%;
             display: flex; flex-direction: column; align-items: center;
@@ -187,11 +207,13 @@
 <body>
 
     <canvas id="canvasRain"></canvas>
+    
+    <div id="scrollTop" onclick="window.scrollTo(0,0)"><i class="fas fa-chevron-up"></i></div>
 
     <div class="content">
         
         <div class="card-main">
-            <img src="logo.png?v=1.7" alt="MR Membresias" class="logo-img">
+            <img src="logo.png?v=1.8" alt="MR Membresias" class="logo-img">
             <h1>MR MEMBRESIAS</h1>
             <p style="color: #ccc; font-size: 1.2rem; margin-bottom: 30px;">Acceso a tus plataformas favoritas!</p>
             <a href="https://wa.me/5493834687071" class="btn-gold">
@@ -224,36 +246,36 @@
         <div class="grid-categorias">
             <div class="categoria-card" data-type="streaming">
                 <h3>🎬 STREAMING</h3>
-                <div class="item-s"><img src="netflix.png?v=1.7" class="logo-servicio"> Netflix Premium</div>
-                <div class="item-s"><img src="disneyplus.png?v=1.7" class="logo-servicio"> Disney+ Premium</div>
-                <div class="item-s"><img src="primevideo.png?v=1.7" class="logo-servicio"> Prime Video</div>
-                <div class="item-s"><img src="max.png?v=1.7" class="logo-servicio"> Max (HBO)</div>
-                <div class="item-s"><img src="paramountplus.png?v=1.7" class="logo-servicio"> Paramount+</div>
-                <div class="item-s"><img src="vixplus.png?v=1.7" class="logo-servicio"> Vix Premium</div>
-                <div class="item-s"><img src="appletv.png?v=1.7" class="logo-servicio"> Apple TV+</div>
-                <div class="item-s"><img src="crunchyroll.png?v=1.7" class="logo-servicio"> Crunchyroll</div>
+                <div class="item-s"><img src="netflix.png?v=1.8" class="logo-servicio"> Netflix Premium</div>
+                <div class="item-s"><img src="disneyplus.png?v=1.8" class="logo-servicio"> Disney+ Premium</div>
+                <div class="item-s"><img src="primevideo.png?v=1.8" class="logo-servicio"> Prime Video</div>
+                <div class="item-s"><img src="max.png?v=1.8" class="logo-servicio"> Max (HBO)</div>
+                <div class="item-s"><img src="paramountplus.png?v=1.8" class="logo-servicio"> Paramount+</div>
+                <div class="item-s"><img src="vixplus.png?v=1.8" class="logo-servicio"> Vix Premium</div>
+                <div class="item-s"><img src="appletv.png?v=1.8" class="logo-servicio"> Apple TV+</div>
+                <div class="item-s"><img src="crunchyroll.png?v=1.8" class="logo-servicio"> Crunchyroll</div>
                 <div class="item-s"><i class="fas fa-bolt" style="color:#FFD700; font-size:32px; width:38px; text-align:center; margin-right:15px;"></i> Flujo TV</div>
-                <div class="item-s"><img src="phub.png?v=1.7" class="logo-servicio"> Pornhub Premium</div>
+                <div class="item-s"><img src="phub.png?v=1.8" class="logo-servicio"> Pornhub Premium</div>
             </div>
 
             <div class="categoria-card" data-type="musica">
                 <h3>🎧 MÚSICA</h3>
-                <div class="item-s"><img src="spotify.png?v=1.7" class="logo-servicio"> Spotify Premium</div>
-                <div class="item-s"><img src="youtube.png?v=1.7" class="logo-servicio"> YouTube Premium</div>
-                <div class="item-s"><img src="appletv.png?v=1.7" class="logo-servicio"> Apple Music</div>
+                <div class="item-s"><img src="spotify.png?v=1.8" class="logo-servicio"> Spotify Premium</div>
+                <div class="item-s"><img src="youtube.png?v=1.8" class="logo-servicio"> YouTube Premium</div>
+                <div class="item-s"><img src="appletv.png?v=1.8" class="logo-servicio"> Apple Music</div>
             </div>
 
             <div class="categoria-card" data-type="pro">
                 <h3>💻 IA, EDICION Y +</h3>
-                <div class="item-s"><img src="chatgpt.png?v=1.7" class="logo-servicio"> ChatGPT Pro</div>
-                <div class="item-s"><img src="canva.png?v=1.7" class="logo-servicio"> Canva Pro</div>
-                <div class="item-s"><img src="capcut.png?v=1.7" class="logo-servicio"> CapCut Pro</div>
-                <div class="item-s"><img src="microsoftoffice.png?v=1.7" class="logo-servicio"> Office 365</div>
+                <div class="item-s"><img src="chatgpt.png?v=1.8" class="logo-servicio"> ChatGPT Pro</div>
+                <div class="item-s"><img src="canva.png?v=1.8" class="logo-servicio"> Canva Pro</div>
+                <div class="item-s"><img src="capcut.png?v=1.8" class="logo-servicio"> CapCut Pro</div>
+                <div class="item-s"><img src="microsoftoffice.png?v=1.8" class="logo-servicio"> Office 365</div>
             </div>
         </div>
 
         <div class="contact-footer">
-            <img src="logo.png?v=1.7" alt="Logo MR" class="footer-logo">
+            <img src="logo.png?v=1.8" alt="Logo MR" class="footer-logo">
             <p style="color: #eee; font-size: 1.1rem;">Atención rápida y personalizada</p>
             <div class="phone-display">3834687071</div>
         </div>
@@ -282,6 +304,12 @@
             requestAnimationFrame(draw);
         }
         draw();
+
+        // Mostrar botón subir
+        window.onscroll = function() {
+            const btn = document.getElementById("scrollTop");
+            if (document.documentElement.scrollTop > 400) { btn.style.display = "flex"; } else { btn.style.display = "none"; }
+        };
 
         function filterBox(type, btn) {
             const cards = document.querySelectorAll('.categoria-card');
