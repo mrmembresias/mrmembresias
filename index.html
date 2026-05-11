@@ -9,6 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
+        :root {
+            --gold: linear-gradient(180deg, #FFD700 0%, #B8860B 100%);
+            --gold-solid: #B8860B;
+        }
+
         body, html {
             margin: 0; padding: 0;
             width: 100%; height: 100%;
@@ -16,9 +21,9 @@
             color: white;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* FONDO CON LÁGRIMAS DE ORO */
         #canvasRain {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -39,11 +44,22 @@
             align-items: center;
         }
 
+        /* ANIMACIÓN DE ENTRADA */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         h1 { 
             font-size: 2.8rem; 
             margin: 10px 0; 
             letter-spacing: 3px;
-            background: linear-gradient(180deg, #FFD700 0%, #B8860B 100%);
+            background: var(--gold);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 900;
@@ -60,15 +76,42 @@
         }
 
         .card-main {
-            background: rgba(10, 10, 10, 0.85);
-            border: 1px solid rgba(255, 215, 0, 0.4); 
-            border-radius: 20px;
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 25px;
             padding: 40px;
             width: 100%;
             max-width: 550px; 
             text-align: center;
             margin-bottom: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        /* FILTROS */
+        .filter-container {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--gold-solid);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--gold);
+            color: black;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
         }
 
         .grid-categorias {
@@ -79,29 +122,28 @@
         }
 
         .categoria-card {
-            background: rgba(15, 15, 15, 0.95);
-            border: 2px solid #B8860B; 
-            border-radius: 18px;
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--gold-solid);
+            border-radius: 20px;
             padding: 30px;
             transition: 0.4s ease;
         }
 
         .categoria-card:hover {
-            border-color: #FFD700; 
-            background: rgba(40, 30, 0, 0.3); 
-            box-shadow: 0 0 35px rgba(184, 134, 11, 0.5); 
+            border-color: #FFD700;
+            box-shadow: 0 0 35px rgba(184, 134, 11, 0.4);
             transform: translateY(-10px);
         }
 
         .categoria-card h3 {
             font-size: 1.4rem;
             text-align: center;
-            color: #FFD700; 
-            border-bottom: 2px solid #B8860B;
+            color: #FFD700;
+            border-bottom: 2px solid var(--gold-solid);
             padding-bottom: 15px;
             margin-bottom: 25px;
             font-weight: 900;
-            text-transform: uppercase;
         }
 
         .item-s {
@@ -113,57 +155,79 @@
             font-weight: 700;
         }
 
-        .logo-servicio {
-            width: 35px;
-            height: 35px;
-            object-fit: contain;
-        }
+        .logo-servicio { width: 35px; height: 35px; object-fit: contain; }
 
-        .btn-blue {
+        /* BOTÓN WHATSAPP DORADO ANIMADO */
+        .btn-gold {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
             padding: 18px;
-            border-radius: 12px;
+            border-radius: 15px;
             text-decoration: none;
             font-weight: 900;
             font-size: 1.3rem;
-            background: #0056b3;
-            color: white;
+            background: var(--gold);
+            color: black;
+            overflow: hidden;
             transition: 0.3s;
-            margin-top: 20px;
+        }
+
+        .btn-gold::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -60%;
+            width: 20%; height: 200%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: rotate(30deg);
+            transition: 0s;
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -60%; }
+            20% { left: 120%; }
+            100% { left: 120%; }
+        }
+
+        /* PASOS COMPRA */
+        .steps-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin: 50px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .step-item {
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .step-item i {
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 10px;
         }
 
         .contact-footer {
-            margin-top: 80px;
-            text-align: center;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            margin-top: 80px; text-align: center; width: 100%;
+            display: flex; flex-direction: column; align-items: center;
         }
 
         .footer-logo {
-            width: 540px !important; 
-            height: 540px !important; 
-            max-width: 90% !important;
-            border-radius: 40px;
-            border: 4px solid #B8860B;
-            margin-bottom: 30px;
-            object-fit: contain;
-            filter: drop-shadow(0 0 30px rgba(184, 134, 11, 0.6));
+            width: 450px !important; height: 450px !important; max-width: 90% !important;
+            border-radius: 40px; border: 4px solid #B8860B; margin-bottom: 30px;
+            object-fit: contain; filter: drop-shadow(0 0 30px rgba(184, 134, 11, 0.6));
         }
 
         .phone-display {
-            font-size: 2.2rem;
-            font-weight: 900;
-            background: linear-gradient(180deg, #FFD700 0%, #B8860B 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 2px;
-            margin-top: 10px;
-            text-shadow: 0 0 15px rgba(184, 134, 11, 0.5);
+            font-size: 2.5rem; font-weight: 900;
+            background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            letter-spacing: 2px; text-shadow: 0 0 15px rgba(184, 134, 11, 0.5);
         }
 
     </style>
@@ -174,106 +238,124 @@
 
     <div class="content">
         
-        <div class="card-main">
-            <img src="logo.png?v=1.5" alt="MR Membresias" class="logo-img">
+        <div class="card-main reveal">
+            <img src="logo.png?v=1.6" alt="MR Membresias" class="logo-img">
             <h1>MR MEMBRESIAS</h1>
             <p style="color: #ccc; font-size: 1.2rem; margin-bottom: 30px;">Acceso a tus plataformas favoritas!</p>
-            <a href="https://wa.me/5493834687071" class="btn-blue">
+            <a href="https://wa.me/5493834687071" class="btn-gold">
                 <i class="fab fa-whatsapp"></i> &nbsp; CONTACTO DIRECTO
             </a>
         </div>
 
-        <h2 style="text-align: center; margin-bottom: 40px; letter-spacing: 3px; font-weight: 900; font-size: 1.8rem; text-transform: uppercase;">Catálogo Exclusivo</h2>
+        <div class="steps-container reveal">
+            <div class="step-item">
+                <i class="fas fa-search"></i>
+                <p>Elegís el servicio</p>
+            </div>
+            <div class="step-item">
+                <i class="fas fa-comment-dollar"></i>
+                <p>Pagás por transferencia</p>
+            </div>
+            <div class="step-item">
+                <i class="fas fa-rocket"></i>
+                <p>Recibís al instante</p>
+            </div>
+        </div>
+
+        <div class="filter-container reveal">
+            <button class="filter-btn active" onclick="filterBox('all')">Todo</button>
+            <button class="filter-btn" onclick="filterBox('streaming')">Streaming</button>
+            <button class="filter-btn" onclick="filterBox('musica')">Música</button>
+            <button class="filter-btn" onclick="filterBox('pro')">Productividad</button>
+        </div>
 
         <div class="grid-categorias">
-            <div class="categoria-card">
+            <div class="categoria-card reveal" data-type="streaming">
                 <h3>🎬 STREAMING</h3>
-                <div class="item-s"><img src="netflix.png?v=1.5" class="logo-servicio"> Netflix Premium</div>
-                <div class="item-s"><img src="disneyplus.png?v=1.5" class="logo-servicio"> Disney+ Premium</div>
-                <div class="item-s"><img src="primevideo.png?v=1.5" class="logo-servicio"> Prime Video</div>
-                <div class="item-s"><img src="max.png?v=1.5" class="logo-servicio"> Max (HBO)</div>
-                <div class="item-s"><img src="paramountplus.png?v=1.5" class="logo-servicio"> Paramount+</div>
-                <div class="item-s"><img src="vixplus.png?v=1.5" class="logo-servicio"> Vix Premium</div>
-                <div class="item-s"><img src="appletv.png?v=1.5" class="logo-servicio"> Apple TV+</div>
-                <div class="item-s"><img src="crunchyroll.png?v=1.5" class="logo-servicio"> Crunchyroll</div>
-                <div class="item-s">
-                    <i class="fas fa-bolt" style="color: #FFD700; font-size: 32px; width: 38px; text-align: center; margin-right: 15px;"></i> 
-                    Flujo TV
-                </div>
-                <div class="item-s"><img src="phub.png?v=1.5" class="logo-servicio"> Pornhub Premium</div>
+                <div class="item-s"><img src="netflix.png?v=1.6" class="logo-servicio"> Netflix Premium</div>
+                <div class="item-s"><img src="disneyplus.png?v=1.6" class="logo-servicio"> Disney+ Premium</div>
+                <div class="item-s"><img src="primevideo.png?v=1.6" class="logo-servicio"> Prime Video</div>
+                <div class="item-s"><img src="max.png?v=1.6" class="logo-servicio"> Max (HBO)</div>
+                <div class="item-s"><img src="paramountplus.png?v=1.6" class="logo-servicio"> Paramount+</div>
+                <div class="item-s"><img src="vixplus.png?v=1.6" class="logo-servicio"> Vix Premium</div>
+                <div class="item-s"><img src="appletv.png?v=1.6" class="logo-servicio"> Apple TV+</div>
+                <div class="item-s"><img src="crunchyroll.png?v=1.6" class="logo-servicio"> Crunchyroll</div>
+                <div class="item-s"><i class="fas fa-bolt" style="color:#FFD700; font-size:32px; width:38px; text-align:center; margin-right:15px;"></i> Flujo TV</div>
+                <div class="item-s"><img src="phub.png?v=1.6" class="logo-servicio"> Pornhub Premium</div>
             </div>
 
-            <div class="categoria-card">
+            <div class="categoria-card reveal" data-type="musica">
                 <h3>🎧 MÚSICA</h3>
-                <div class="item-s"><img src="spotify.png?v=1.5" class="logo-servicio"> Spotify Premium</div>
-                <div class="item-s"><img src="youtube.png?v=1.5" class="logo-servicio"> YouTube Premium</div>
-                <div class="item-s"><img src="appletv.png?v=1.5" class="logo-servicio"> Apple Music</div>
+                <div class="item-s"><img src="spotify.png?v=1.6" class="logo-servicio"> Spotify Premium</div>
+                <div class="item-s"><img src="youtube.png?v=1.6" class="logo-servicio"> YouTube Premium</div>
+                <div class="item-s"><img src="appletv.png?v=1.6" class="logo-servicio"> Apple Music</div>
             </div>
 
-            <div class="categoria-card">
+            <div class="categoria-card reveal" data-type="pro">
                 <h3>💻 IA, EDICION Y +</h3>
-                <div class="item-s"><img src="chatgpt.png?v=1.5" class="logo-servicio"> ChatGPT Pro</div>
-                <div class="item-s"><img src="canva.png?v=1.5" class="logo-servicio"> Canva Pro</div>
-                <div class="item-s"><img src="capcut.png?v=1.5" class="logo-servicio"> CapCut Pro</div>
-                <div class="item-s"><img src="microsoftoffice.png?v=1.5" class="logo-servicio"> Office 365</div>
-                
+                <div class="item-s"><img src="chatgpt.png?v=1.6" class="logo-servicio"> ChatGPT Pro</div>
+                <div class="item-s"><img src="canva.png?v=1.6" class="logo-servicio"> Canva Pro</div>
+                <div class="item-s"><img src="capcut.png?v=1.6" class="logo-servicio"> CapCut Pro</div>
+                <div class="item-s"><img src="microsoftoffice.png?v=1.6" class="logo-servicio"> Office 365</div>
             </div>
         </div>
 
-        <div class="contact-footer">
-            <img src="logo.png?v=1.5" alt="Logo MR" class="footer-logo">
-            <p style="color: #eee; font-size: 1.1rem; margin-bottom: 5px;">Atención rápida y personalizada al WhatsApp</p>
-            <div style="font-size: 1.5rem; font-weight: bold; color: #fff;">Contacto:</div>
+        <div class="contact-footer reveal">
+            <img src="logo.png?v=1.6" alt="Logo MR" class="footer-logo">
+            <p style="color: #eee; font-size: 1.1rem;">Atención rápida y personalizada</p>
             <div class="phone-display">3834687071</div>
         </div>
-
-        <p style="font-size: 0.9rem; color: #555; margin-top: 60px;">© 2026 MR MEMBRESIAS.</p>
     </div>
 
     <script>
         const canvas = document.getElementById('canvasRain');
         const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
         let particles = [];
-        for (let i = 0; i < 100; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                length: Math.random() * 30 + 10,
-                speed: Math.random() * 4 + 2,
-                opacity: Math.random() * 0.5 + 0.2
-            });
+        for (let i = 0; i < 80; i++) {
+            particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, length: Math.random() * 30 + 10, speed: Math.random() * 3 + 2, opacity: Math.random() * 0.4 + 0.1 });
         }
-
         function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (let i = 0; i < particles.length; i++) {
                 let p = particles[i];
-                let gradient = ctx.createLinearGradient(p.x, p.y, p.x, p.y + p.length);
-                gradient.addColorStop(0, `rgba(255, 215, 0, 0)`);
-                gradient.addColorStop(1, `rgba(212, 175, 55, ${p.opacity})`);
-                ctx.strokeStyle = gradient;
-                ctx.lineWidth = 2;
-                ctx.lineCap = 'round';
-                ctx.beginPath();
-                ctx.moveTo(p.x, p.y);
-                ctx.lineTo(p.x, p.y + p.length);
-                ctx.stroke();
-                p.y += p.speed;
-                if (p.y > canvas.height) { 
-                    p.y = -p.length; 
-                    p.x = Math.random() * canvas.width; 
-                }
+                let grad = ctx.createLinearGradient(p.x, p.y, p.x, p.y + p.length);
+                grad.addColorStop(0, `rgba(255, 215, 0, 0)`); grad.addColorStop(1, `rgba(212, 175, 55, ${p.opacity})`);
+                ctx.strokeStyle = grad; ctx.lineWidth = 2; ctx.lineCap = 'round';
+                ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y + p.length); ctx.stroke();
+                p.y += p.speed; if (p.y > canvas.height) { p.y = -p.length; p.x = Math.random() * canvas.width; }
             }
             requestAnimationFrame(draw);
         }
         draw();
-        window.addEventListener('resize', () => { 
-            canvas.width = window.innerWidth; 
-            canvas.height = window.innerHeight; 
-        });
+
+        // FILTROS
+        function filterBox(type) {
+            const cards = document.querySelectorAll('.categoria-card');
+            const btns = document.querySelectorAll('.filter-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if(type === 'all' || card.getAttribute('data-type') === type) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // REVEAL ANIMATION
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) { reveals[i].classList.add('active'); }
+            }
+        }
+        window.onload = reveal;
     </script>
 </body>
 </html>
