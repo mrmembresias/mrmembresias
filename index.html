@@ -5,24 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MR MEMBRESIAS | Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* ESTILOS BASE */
         body, html {
             margin: 0; padding: 0;
             width: 100%; height: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0b0216; /* Violeta muy oscuro */
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0216;
             color: white;
             overflow-x: hidden;
         }
 
-        /* EFECTO DE LLUVIA REAL */
         #canvasRain {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 0;
-            pointer-events: none;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
         }
 
         .content {
@@ -36,10 +33,9 @@
 
         .container {
             width: 100%;
-            max-width: 450px;
+            max-width: 900px; /* Ancho para que entren las 3 columnas en PC */
         }
 
-        /* BLOQUES ESTILO DIGITAL GAMER */
         .card {
             background: rgba(10, 10, 10, 0.95);
             border: 1px solid #1f1f1f;
@@ -47,102 +43,55 @@
             padding: 20px;
             margin-bottom: 15px;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
             transition: 0.3s;
         }
 
-        /* EFECTO VIOLETA AL PASAR EL MOUSE */
-.card:hover {
-    background: rgba(46, 0, 87, 0.4); /* Se vuelve violeta transparente */
-    border-color: #7000ff; /* El borde brilla en violeta fuerte */
-    box-shadow: 0 0 25px rgba(112, 0, 255, 0.3); /* Crea un aura de luz violeta */
-    transform: translateY(-3px); /* Sube un poquito para que parezca que flota */
-    transition: all 0.3s ease; /* Hace que el cambio sea suave, no de golpe */
-}
+        .card:hover {
+            background: rgba(46, 0, 87, 0.4);
+            border-color: #7000ff;
+            box-shadow: 0 0 25px rgba(112, 0, 255, 0.3);
+        }
 
-/* También le damos brillo al botón cuando pasas el mouse */
-.btn-vip:hover, .btn-green:hover {
-    filter: brightness(1.2);
-    transform: scale(1.02);
-    transition: 0.2s;
-}
-        
-        h1 { font-size: 1.6rem; margin: 0; color: #fff; }
-        .subtitle { font-size: 0.85rem; color: #888; margin-bottom: 15px; }
-
-        /* BOTÓN VIP AZUL */
+        /* BOTONES */
         .btn-vip {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #0056b3;
-            color: white;
-            padding: 14px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin-top: 10px;
+            display: flex; align-items: center; justify-content: center;
+            background: #0056b3; color: white; padding: 14px;
+            border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 10px;
         }
 
-        /* SECCIÓN DE TV CON BORDE AZUL */
-        .tv-section {
-            border: 1px solid #0056b3;
-        }
-
-        .grid-tv {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 15px 0;
-        }
-
-        .tv-item {
-            background: #161616;
-            border-left: 3px solid #00d2ff;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: left;
-        }
-
-        .tv-item b { font-size: 0.8rem; color: #00d2ff; display: block; }
-        .tv-item span { font-size: 0.7rem; color: #aaa; }
-
-        /* BOTÓN VERDE */
         .btn-green {
-            display: block;
-            background: #25d366;
-            color: white;
-            padding: 12px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.85rem;
+            display: block; background: #25d366; color: white;
+            padding: 12px; border-radius: 30px; text-decoration: none; font-weight: bold;
         }
 
-        /* CATÁLOGO DE SERVICIOS (TODOS LOS BOTONES) */
-        .services-list {
-            text-align: left;
+        /* GRID DE LAS 3 COLUMNAS */
+        .grid-categorias {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .service-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.8rem;
-            color: #eee;
-            margin: 5px 0;
+        .categoria-card {
+            background: rgba(15, 15, 15, 0.9);
+            border: 1px solid #3a007d;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: left;
         }
 
-        /* COLORES DE LOGOS */
-        .fa-netflix { color: #e50914; }
-        .fa-spotify { color: #1db954; }
-        .fa-youtube { color: #ff0000; }
-        .fa-instagram { color: #e1306c; }
-        .fa-play { color: #00d2ff; }
+        .categoria-card h3 {
+            font-size: 0.9rem; text-align: center;
+            border-bottom: 1px solid #3a007d; padding-bottom: 10px;
+        }
+
+        .item-s {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 0.8rem; margin: 10px 0; color: #ccc;
+        }
+
+        .item-s i { color: #00d2ff; width: 18px; text-align: center; }
+
     </style>
 </head>
 <body>
@@ -154,105 +103,46 @@
             
             <div class="card">
                 <h1>MR MEMBRESIAS</h1>
-                <p class="subtitle">Servicios Digitales PREMIUM!</p>
-                <a href="https://wa.me/5493834687071" class="btn-vip">
-                    <i class="fab fa-whatsapp"></i> &nbsp; PEDI TU CUENTA YA!
+                <p style="color: #888; font-size: 0.9rem;">Acceso Digital Premium al instante.</p>
+                <a href="https://wa.me/5493834XXXXXX" class="btn-vip">
+                    <i class="fab fa-whatsapp"></i> &nbsp; UNIRSE AL GRUPO VIP
                 </a>
             </div>
 
-            <div class="card tv-section">
+            <div class="card" style="border: 1px solid #0056b3;">
                 <h2 style="color: #00d2ff; font-size: 1.1rem; margin-top: 0;">EL SERVICIO DEFINITIVO</h2>
-                <div class="grid-tv">
-                    <div class="tv-item">
-                        <b>⚽ Deportes VIP</b>
-                        <span>Pack Fútbol Completo.</span>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0;">
+                    <div style="background: #161616; border-left: 3px solid #00d2ff; padding: 10px; border-radius: 5px; text-align: left;">
+                        <b style="color: #00d2ff; font-size: 0.8rem;">⚽ Deportes VIP</b>
                     </div>
-                    <div class="tv-item">
-                        <b>🎬 Cine 4K</b>
-                        <span>Netflix, Disney, Max.</span>
+                    <div style="background: #161616; border-left: 3px solid #00d2ff; padding: 10px; border-radius: 5px; text-align: left;">
+                        <b style="color: #00d2ff; font-size: 0.8rem;">🎬 Cine 4K</b>
                     </div>
                 </div>
-                <a href="https://wa.me/5493834687071" class="btn-green">
-                    PEDI TU CUENTA AHORA!
-                </a>
+                <a href="https://wa.me/5493834XXXXXX" class="btn-green">🎁 PEDIR MI PRUEBA GRATIS</a>
             </div>
 
-            <div class="card">
-                <h3 style="font-size: 0.9rem; margin-bottom: 15px;">NUESTROS SERVICIOS</h3>
-                <div class="services-list">
-                    /* Título de la sección */
-.titulo-servicios {
-    text-align: center;
-    font-size: 1.2rem;
-    margin: 40px 0 20px;
-    letter-spacing: 2px;
-    color: #fff;
-    border-top: 1px solid #7000ff;
-    padding-top: 20px;
-}
+            <h2 style="text-align: center; font-size: 1.1rem; margin-top: 40px; letter-spacing: 1px;">NUESTROS SERVICIOS EXCLUSIVOS</h2>
 
-/* Contenedor de las 3 columnas */
-.grid-categorias {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    width: 100%;
-    max-width: 1000px; /* Más ancho para que entren las 3 columnas */
-}
-
-/* La tarjeta de cada categoría */
-.categoria-card {
-    background: rgba(15, 15, 15, 0.9);
-    border: 1px solid #3a007d; /* Borde violeta oscuro */
-    border-radius: 15px;
-    padding: 20px;
-    text-align: left;
-}
-
-.categoria-card h3 {
-    font-size: 1rem;
-    color: #fff;
-    border-bottom: 1px solid #3a007d;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-/* Lista de ítems internos */
-.lista-servicios {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.item-s {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.85rem;
-    color: #efefef;
-}
-
-/* Color de los iconos para que resalten */
-.item-s i {
-    width: 20px;
-    text-align: center;
-    color: #00d2ff; /* Color celeste para los iconos */
-}
-
-/* Efecto hover igual al que querías */
-.categoria-card:hover {
-    border-color: #7000ff;
-    box-shadow: 0 0 20px rgba(112, 0, 255, 0.2);
-    transform: translateY(-5px);
-    transition: 0.3s;
-}
-                    <div class="service-link"><i class="fab fa-netflix"></i> Netflix Premium</div>
-                    <div class="service-link"><i class="fab fa-spotify"></i> Spotify Premium</div>
-                    <div class="service-link"><i class="fab fa-youtube"></i> YouTube Premium</div>
-                    <div class="service-link"><i class="fas fa-play"></i> Disney+</div>
-                    <div class="service-link"><i class="fab fa-instagram"></i> Seguidores IG</div>
-                    <div class="service-link"><i class="fas fa-magic" style="color: #00c4cc;"></i> Canva Pro</div>
+            <div class="grid-categorias">
+                <div class="categoria-card">
+                    <h3>🎬 CINE & STREAMING</h3>
+                    <div class="item-s"><i class="fab fa-netflix"></i> Netflix Premium</div>
+                    <div class="item-s"><i class="fas fa-play"></i> Disney+</div>
+                    <div class="item-s"><i class="fas fa-video"></i> Prime Video</div>
+                    <div class="item-s"><i class="fas fa-star"></i> Paramount+</div>
+                </div>
+                <div class="categoria-card">
+                    <h3>🎧 MÚSICA SIN LÍMITES</h3>
+                    <div class="item-s"><i class="fab fa-spotify"></i> Spotify Premium</div>
+                    <div class="item-s"><i class="fab fa-youtube"></i> YouTube Premium</div>
+                    <div class="item-s"><i class="fab fa-apple"></i> Apple Music</div>
+                </div>
+                <div class="categoria-card">
+                    <h3>💻 IA & PRODUCTIVIDAD</h3>
+                    <div class="item-s"><i class="fas fa-robot"></i> ChatGPT Pro</div>
+                    <div class="item-s"><i class="fas fa-paint-brush"></i> Canva Pro</div>
+                    <div class="item-s"><i class="fas fa-cut"></i> Capcut Pro</div>
                 </div>
             </div>
 
@@ -264,7 +154,6 @@
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-
         let particles = [];
         for (let i = 0; i < 100; i++) {
             particles.push({
@@ -274,27 +163,20 @@
                 speed: Math.random() * 5 + 2
             });
         }
-
         function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.strokeStyle = 'rgba(174, 150, 255, 0.5)';
+            ctx.strokeStyle = 'rgba(174, 150, 255, 0.4)';
             ctx.lineWidth = 1;
-            ctx.lineCap = 'round';
             for (let i = 0; i < particles.length; i++) {
                 let p = particles[i];
-                ctx.beginPath();
-                ctx.moveTo(p.x, p.y);
-                ctx.lineTo(p.x, p.y + p.length);
-                ctx.stroke();
-                p.y += p.speed;
-                if (p.y > canvas.height) {
-                    p.y = -20;
-                    p.x = Math.random() * canvas.width;
-                }
+                ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y + p.length); ctx.stroke();
+                p.y += p.speed; if (p.y > canvas.height) p.y = -20;
             }
             requestAnimationFrame(draw);
         }
         draw();
     </script>
+</body>
+</html>
 </body>
 </html>
