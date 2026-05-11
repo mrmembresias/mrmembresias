@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MR MEMBRESIAS |Servicios PREMIUM</title>
+    <title>MR MEMBRESIAS | Servicios premium</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
@@ -18,6 +18,7 @@
             overflow-x: hidden;
         }
 
+        /* FONDO ANIMADO VIOLETA */
         #canvasRain {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -41,7 +42,7 @@
         /* TÍTULO DORADO ORO */
         h1 { 
             font-size: 2.8rem; 
-            margin: 15px 0; 
+            margin: 10px 0; 
             letter-spacing: 3px;
             background: linear-gradient(180deg, #FFD700 0%, #B8860B 100%);
             -webkit-background-clip: text;
@@ -51,25 +52,26 @@
             text-shadow: 0 0 20px rgba(184, 134, 11, 0.4);
         }
 
+        /* NUEVO ESTILO LOGO TRANSPARENTE */
         .logo-img {
-            width: 140px;
-            height: 140px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid #B8860B;
-            box-shadow: 0 0 30px rgba(184, 134, 11, 0.6);
-            margin-bottom: 10px;
+            width: 150px; /* Ajustalo a tu gusto */
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;
+            /* Agregamos un brillo para que el dorado resalte sobre el fondo oscuro */
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
         }
 
         .card-main {
-            background: rgba(10, 10, 10, 0.9);
-            border: 1px solid #1a1a1a;
+            background: rgba(10, 10, 10, 0.85);
+            border: 1px solid rgba(255, 215, 0, 0.2);
             border-radius: 20px;
             padding: 40px;
             width: 100%;
             max-width: 550px;
             text-align: center;
             margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .grid-categorias {
@@ -112,7 +114,6 @@
             font-size: 1.2rem;
             margin: 20px 0;
             font-weight: 700;
-            color: #ffffff;
         }
 
         .logo-servicio {
@@ -130,7 +131,7 @@
             border-radius: 12px;
             text-decoration: none;
             font-weight: 900;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             background: #0056b3;
             color: white;
             transition: 0.3s;
@@ -151,7 +152,7 @@
     <div class="content">
         
         <div class="card-main">
-            <img src="logo.png" alt="Logo MR" class="logo-img">
+            <img src="logo.png" alt="MR Membresias" class="logo-img">
             <h1>MR MEMBRESIAS</h1>
             <p style="color: #ccc; font-size: 1.2rem; margin-bottom: 30px;">Acceso a tus plataformas favoritas!</p>
             <a href="https://wa.me/5493834687071" class="btn-blue">
@@ -170,18 +171,21 @@
                 <div class="item-s"><img src="max.png" class="logo-servicio"> Max (HBO)</div>
                 <div class="item-s"><img src="paramountplus.png" class="logo-servicio"> Paramount+</div>
                 <div class="item-s"><img src="flujo.png" class="logo-servicio"> Flujo TV</div>
+                <div class="item-s"><img src="magis.png" class="logo-servicio"> Magis TV</div>
                 <div class="item-s"><img src="phub.png" class="logo-servicio"> Pornhub Premium</div>
             </div>
 
             <div class="categoria-card">
-                <h3>🎧 MÚSICA</h3>
+                <h3>🎧 MÚSICA & GAMES</h3>
                 <div class="item-s"><img src="spotify.png" class="logo-servicio"> Spotify Premium</div>
                 <div class="item-s"><img src="youtube.png" class="logo-servicio"> YouTube Premium</div>
                 <div class="item-s"><img src="appletv.png" class="logo-servicio"> Apple TV / Music</div>
+                <div class="item-s"><img src="xbox.png" class="logo-servicio"> Xbox Game Pass</div>
+                <div class="item-s"><img src="psplus.png" class="logo-servicio"> PS Plus</div>
             </div>
 
             <div class="categoria-card">
-                <h3>💻 IA, EDICION Y +</h3>
+                <h3>💻 PRODUCTIVIDAD</h3>
                 <div class="item-s"><img src="chatgpt.png" class="logo-servicio"> ChatGPT Pro</div>
                 <div class="item-s"><img src="canva.png" class="logo-servicio"> Canva Pro</div>
                 <div class="item-s"><img src="capcut.png" class="logo-servicio"> CapCut Pro</div>
@@ -190,7 +194,7 @@
             </div>
         </div>
 
-        <p style="font-size: 0.8rem; color: #444; margin-top: 50px;">© 2026 MR MEMBRESIAS.</p>
+        <p style="font-size: 0.9rem; color: #555; margin-top: 60px;">© 2026 MR MEMBRESIAS. Catamarca, Argentina.</p>
     </div>
 
     <script>
